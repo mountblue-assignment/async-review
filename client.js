@@ -23,6 +23,12 @@ async function fetchFiveUserTodos(start, todos, users) {
 
   for (; index < users.length; index++) {
     if (count <= 5) {
+      //using async await ------
+      // const response = await fetch(`http://localhost:3000${users[index].todos}`);
+      // const userTodos = await response.json();
+      // todos[users[index].id]=userTodos.todos;
+      // count++;
+
       (async () => {
         const i = index; //capturing the current index value bcz index may change by the time the promise resolves
         const userTodosPromise = fetch(`http://localhost:3000${users[i].todos}`)
